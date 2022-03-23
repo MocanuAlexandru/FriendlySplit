@@ -1,0 +1,77 @@
+<html>
+<head>
+
+<title>Expenses</title>
+<link rel="stylesheet" href="main.css"></link>
+<link rel="stylesheet" href="cheltuieli.css"></link>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="main.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+<img src="images\bag.jpg" alt="Money">
+</div>
+
+<div class="header">
+<h1>SplitWise</h1>
+</div>
+
+<div class="menu">
+<nav>
+<ul>
+<li><button class="big"> <a href="home.html">Informatii generale</a></button></li>
+<li><button class="big" id="dropdown-btn"> <a href='#'>Tabele</a> </button>
+<ul class="hidden">
+	<li><button class="small"> <a href="tabel_prieteni.html">Prieteni</a> </button></li>
+	<li><button class="small"> <a href="tabel_cheltuieli.html">Cheltuieli</a></li> </button></ul>
+</li>
+<li><button class="big"> <a href="balanta.html">Balanta</a></li> </button>
+</ul>
+</nav>
+</div>
+
+<div class="content" id="app">
+<p>Introduceti in acest tabel toate tranzactiile dintre persoanele din grupul dumneavoastra.</p>
+<p><strong>Atentie! Nu puteti introduce ca beneficiari decat persoane din grupul dumneavoastra!</strong></p>
+
+<table>
+
+<thead>
+<tr>
+	<th>Eveniment</th>
+	<th>Suma(RON)</th>
+	<th>Platitor</th>
+	<th>Beneficiari</th>
+	<th>Optiuni</th>
+</tr>
+</thead>
+
+<tbody>
+	<tr v-for="(el,id) in table_exp">
+		<td>{{el.Event}}</td>
+		<td>{{el.Sum}}</td>
+		<td>{{table_fr[el.Payer].Name}}</td>
+		<td><span v-for="i in el.Payee">{{table_fr[i].Name}} </span></td>
+		<td><button v-on:click="edit_exp(id)">EDITEAZA</button> <button v-on:click="remove_exp(id)">STERGE</button></td>
+	</tr>
+</tbody>
+</table>
+
+<hr>
+Eveniment:<input v-model="aux_exp.Event"><br>
+Suma(RON):<input v-model="aux_exp.Sum"><br>
+Platitor: <select id="platitor"></select> <br>
+Beneficiari:<span id ="beneficiar"> </span><br>
+<button v-on:click="commit_exp">ADAUGA</button>
+
+</div>
+</div>
+
+</body>
+</html>
+</html>

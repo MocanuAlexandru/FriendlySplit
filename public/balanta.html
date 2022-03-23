@@ -1,0 +1,73 @@
+<html>
+<head>
+
+<title>Money Balance</title>
+<link rel="stylesheet" href="main.css"></link>
+<link rel="stylesheet" href="balanta.css"></link>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="main.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<div class="logo">
+<img src="images\bag.jpg" alt="Money">
+</div>
+
+<div class="header">
+<h1>SplitWise</h1>
+</div>
+
+<div class="menu">
+<nav>
+<ul>
+<li><button class="big"> <a href="home.html">Informatii generale</a></button></li>
+<li><button class="big" id="dropdown-btn"> <a href='#'>Tabele</a> </button>
+<ul class="hidden">
+	<li><button class="small"> <a href="tabel_prieteni.html">Prieteni</a> </button></li>
+	<li><button class="small"> <a href="tabel_cheltuieli.html">Cheltuieli</a></li> </button></ul>
+</li>
+<li><button class="big"> <a href="balanta.html">Balanta</a></li> </button>
+</ul>
+</nav>
+</div>
+
+<div class="content" id="app">
+
+<img src="images/thumbs.jpg" alt="Thumbs up!">
+
+<p>Urmatoarele tranzactii trebuiesc efectuate pentru a ramane cu totii prieteni in continuare:</p>
+
+<table>
+
+<thead>
+<tr>
+	<th>Suma(RON)</th>
+	<th>De la</th>
+	<th>Pentru</th>
+</tr>
+</thead>
+
+<tbody>
+	<tr v-for="el in balance">
+		<td>{{el.Sum}}</td>
+		<td>{{table_fr[el.From].Name}}</td>
+		<td>{{table_fr[el.To].Name}}</td>
+	</tr>
+</tbody>
+</table>
+
+<hr>
+
+<select id="platitor"></select><br>
+<button v-on:click="search_table">Cauta tranzactiile prietenului</button><br>
+<button v-on:click="reset_table">Reseteaza tabel</button><br>
+
+</div>
+</div>
+
+</body>
+</html>
+</html>

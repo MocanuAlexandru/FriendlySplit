@@ -1,0 +1,98 @@
+/*
+https://coolors.co/243010-87a330-a1c349-e7efbf-6c9b5d
+*/
+
+.container {
+	height: 100%;
+	display:grid;
+	grid-template-columns: 230px auto;
+	grid-template-rows: 15% auto;
+	grid-template-areas:
+		'logo header'
+		'menu content';
+}
+
+.header {
+	grid-area: header;
+	background-image: linear-gradient(to right, #243010, #6C9B5D);
+}
+
+.menu {
+	grid-area: menu;
+	background-image:linear-gradient(#87A330, #A1C349);
+}
+
+.content {
+	grid-area: content;
+	background-color: #E7EFBF;
+}
+
+.logo {
+	height:100%;
+	width:100%;
+	grid-area: logo;
+	background-color: #243010;
+}
+
+.logo img {
+	border-radius: 50%;
+	width: auto;
+	height: 14vh;
+	margin-left: 50px;
+}
+
+.header h1 {
+	margin: 2%;
+	margin-left: 10px;
+	font-size: 8vh;
+	font-family: fantasy;
+	text-shadow: 3px 2px #6C9B5D;
+	letter-spacing: 3px;
+	color: #E7EFBF;
+}
+
+.menu .small {
+	width: 165px;
+}
+
+.menu .big {
+	width: 185px;
+}
+
+.menu button {
+	border: 2px solid #E7EFBF;
+	background-color: #A1C349;
+	font-family: fantasy;
+	font-size: 20;
+	color: #243010;
+}
+
+.menu button:hover {
+	background-color: #6C9B5D;
+}
+
+.menu ul {
+	padding-left: 10px;
+	margin-left: 10px;
+	list-style-type: none;
+}
+
+.menu li {
+	margin-bottom: 5px;
+}
+
+.menu li > ul > li {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.hidden {
+	display: none;
+}
+
+.menu a
+{
+	text-decoration: none;
+	color: #243010;
+}
+
